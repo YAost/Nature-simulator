@@ -1,5 +1,5 @@
 
-
+j
 #include <math.h>
 #include <mysql++.h>
 #include <ssqls.h>
@@ -36,19 +36,19 @@ bool stored = false;
 int main()
 {
 
-    int u_id = 1; // счётчик особей (иии их идентификатор)
-    int u_number = 8; // количество появляющихся особей
-    int p_id = 1;   // счётчик растений (иии их идентификатор)
-    int p_number = 100;   // количество появляющихся растений
+    int u_id = 1; // Г±Г·ВёГІГ·ГЁГЄ Г®Г±Г®ГЎГҐГ© (ГЁГЁГЁ ГЁГµ ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г°)
+    int u_number = 8; // ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ®ГїГўГ«ГїГѕГ№ГЁГµГ±Гї Г®Г±Г®ГЎГҐГ©
+    int p_id = 1;   // Г±Г·ВёГІГ·ГЁГЄ Г°Г Г±ГІГҐГ­ГЁГ© (ГЁГЁГЁ ГЁГµ ГЁГ¤ГҐГ­ГІГЁГґГЁГЄГ ГІГ®Г°)
+    int p_number = 100;   // ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГЇГ®ГїГўГ«ГїГѕГ№ГЁГµГ±Гї Г°Г Г±ГІГҐГ­ГЁГ©
     bool rlbck = false;
-    sf::Clock clock1;   float time1;    // время времечко
+    sf::Clock clock1;   float time1;    // ГўГ°ГҐГ¬Гї ГўГ°ГҐГ¬ГҐГ·ГЄГ®
     float rand_time = 4 + rand()%2;
 
-    std::vector<Unit>::iterator uit;    // счётчик элементов динамического массива uit
-    std::vector<Unit>::iterator ujt;    // счетчик элементов динамического массива для сравнения Unitов между собой
-    std::vector<int>::iterator udt;     // счетчик элементов динамического массива ID особей на удаление из массива
-    std::vector<int>::iterator pdt;     // счетчик элементов динамического массива ID растений на удаление их же. НЕГОДНИКОВ!
-    std::vector<Unit> units;        // динамический массив Unitов
+    std::vector<Unit>::iterator uit;    // Г±Г·ВёГІГ·ГЁГЄ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¤ГЁГ­Г Г¬ГЁГ·ГҐГ±ГЄГ®ГЈГ® Г¬Г Г±Г±ГЁГўГ  uit
+    std::vector<Unit>::iterator ujt;    // Г±Г·ГҐГІГ·ГЁГЄ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¤ГЁГ­Г Г¬ГЁГ·ГҐГ±ГЄГ®ГЈГ® Г¬Г Г±Г±ГЁГўГ  Г¤Г«Гї Г±Г°Г ГўГ­ГҐГ­ГЁГї UnitГ®Гў Г¬ГҐГ¦Г¤Гі Г±Г®ГЎГ®Г©
+    std::vector<int>::iterator udt;     // Г±Г·ГҐГІГ·ГЁГЄ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¤ГЁГ­Г Г¬ГЁГ·ГҐГ±ГЄГ®ГЈГ® Г¬Г Г±Г±ГЁГўГ  ID Г®Г±Г®ГЎГҐГ© Г­Г  ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЁГ§ Г¬Г Г±Г±ГЁГўГ 
+    std::vector<int>::iterator pdt;     // Г±Г·ГҐГІГ·ГЁГЄ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў Г¤ГЁГ­Г Г¬ГЁГ·ГҐГ±ГЄГ®ГЈГ® Г¬Г Г±Г±ГЁГўГ  ID Г°Г Г±ГІГҐГ­ГЁГ© Г­Г  ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЁГµ Г¦ГҐ. ГЌГ…ГѓГЋГ„ГЌГ€ГЉГЋГ‚!
+    std::vector<Unit> units;        // Г¤ГЁГ­Г Г¬ГЁГ·ГҐГ±ГЄГЁГ© Г¬Г Г±Г±ГЁГў UnitГ®Гў
     std::vector<Unit> units_1;
     std::vector<int> unitsDelete;
     std::vector<int> plantsDelete;
@@ -65,7 +65,7 @@ int main()
     window.setVerticalSyncEnabled(1);
     window.setKeyRepeatEnabled(false);
 
-    sf::Text pause; // описание текста паузы
+    sf::Text pause; // Г®ГЇГЁГ±Г Г­ГЁГҐ ГІГҐГЄГ±ГІГ  ГЇГ ГіГ§Г»
     sf::Font font;
     font.loadFromFile("1.ttf");
     pause.setFont(font);
@@ -74,7 +74,7 @@ int main()
     pause.setPosition(650.f, 0);
     pause.setColor(sf::Color::Black);
 
-    // описание часов, показывающих время жизни
+    // Г®ГЇГЁГ±Г Г­ГЁГҐ Г·Г Г±Г®Гў, ГЇГ®ГЄГ Г§Г»ГўГ ГѕГ№ГЁГµ ГўГ°ГҐГ¬Гї Г¦ГЁГ§Г­ГЁ
     sf::Text CurrentTime;
     CurrentTime.setFont(font);
     CurrentTime.setCharacterSize(30);
@@ -86,7 +86,7 @@ int main()
     while (window.isOpen()) {
         sf::Event event;
         window.clear(sf::Color::White);
-        while (window.pollEvent(event)) { // опрос событий
+        while (window.pollEvent(event)) { // Г®ГЇГ°Г®Г± Г±Г®ГЎГ»ГІГЁГ©
             if (event.type == sf::Event::Closed)    {
                 query << "DROP DATABASE cpp;";
                 query.execute();
@@ -95,8 +95,8 @@ int main()
                 window.close();
                 return 0;
             }
-            if (event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::Insert)))   {   // Возврат на 22 секунду
-                //rlbck = !rlbck;                                                                      // по нажатию пробела
+            if (event.type == sf::Event::KeyPressed && (sf::Keyboard::isKeyPressed(sf::Keyboard::Insert)))   {   // Г‚Г®Г§ГўГ°Г ГІ Г­Г  22 Г±ГҐГЄГіГ­Г¤Гі
+                //rlbck = !rlbck;                                                                      // ГЇГ® Г­Г Г¦Г ГІГЁГѕ ГЇГ°Г®ГЎГҐГ«Г 
                 if (real_time > 22) {
                     real_time = 22;
                     window.clear(sf::Color::White);
@@ -143,7 +143,7 @@ int main()
                                 if (tSpawn > 22) {
                                     query << "DELETE FROM P WHERE id = " << pit->retPlantId() << ";";
                                     query.execute();
-                                    plantsDelete.push_back(pit->retPlantId());  //удаление из массива
+                                    plantsDelete.push_back(pit->retPlantId());  //ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЁГ§ Г¬Г Г±Г±ГЁГўГ 
                                     p_id--;
                                 }
                                 if ((tSpawn <= 22) && (tEaten > 22))  {
@@ -219,13 +219,13 @@ int main()
                     units.insert(units.end(), *uit);
                 units_1.clear();
             }
-            if (time1 > rand_time && u_id < u_number) {     // заполнение динамического массива (вектора)  ПЕРВИЧНЫЙ СПАВН N ОСОБЕЙ
-                if (u_id == 1)  {   // создаем таблицу спавна на сервере
+            if (time1 > rand_time && u_id < u_number) {     // Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ Г¤ГЁГ­Г Г¬ГЁГ·ГҐГ±ГЄГ®ГЈГ® Г¬Г Г±Г±ГЁГўГ  (ГўГҐГЄГІГ®Г°Г )  ГЏГ…ГђГ‚Г€Г—ГЌГ›Г‰ Г‘ГЏГЂГ‚ГЌ N ГЋГ‘ГЋГЃГ…Г‰
+                if (u_id == 1)  {   // Г±Г®Г§Г¤Г ГҐГ¬ ГІГ ГЎГ«ГЁГ¶Гі Г±ГЇГ ГўГ­Г  Г­Г  Г±ГҐГ°ГўГҐГ°ГҐ
                         query <<"CREATE TABLE spawnTime(id int, time int) ENGINE=MEMORY ";
                         query.execute();
                 }
                 std::cout << u_id << " is ready on " << real_time << " sec" << std::endl;
-                u1.gen(u_id, rand()%800, rand()%600, 1);    // элементами класса Unit с случайными координатами и последовательным id
+                u1.gen(u_id, rand()%800, rand()%600, 1);    // ГЅГ«ГҐГ¬ГҐГ­ГІГ Г¬ГЁ ГЄГ«Г Г±Г±Г  Unit Г± Г±Г«ГіГ·Г Г©Г­Г»Г¬ГЁ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ Г¬ГЁ ГЁ ГЇГ®Г±Г«ГҐГ¤Г®ГўГ ГІГҐГ«ГјГ­Г»Г¬ id
                 units.push_back(u1);
                 clock1.restart();
                 //cout << "creating table" << endl;
@@ -238,7 +238,7 @@ int main()
 
             }
 
-            if (p_id < p_number )    {       //  заполнения вектора растений объекта класса plant    ПЕРВИЧНЫЙ СПАВН N РАСТЕНИЙ
+            if (p_id < p_number )    {       //  Г§Г ГЇГ®Г«Г­ГҐГ­ГЁГї ГўГҐГЄГІГ®Г°Г  Г°Г Г±ГІГҐГ­ГЁГ© Г®ГЎГєГҐГЄГІГ  ГЄГ«Г Г±Г±Г  plant    ГЏГ…ГђГ‚Г€Г—ГЌГ›Г‰ Г‘ГЏГЂГ‚ГЌ N ГђГЂГ‘Г’Г…ГЌГ€Г‰
                 float p_x = rand()%1000; float p_y = rand()%800; float k = 1 + rand()%2;
                 p1.gen(p_id, p_x, p_y, k);
                 plants.push_back(p1);
@@ -251,21 +251,21 @@ int main()
                 p_id++;
             }
 
-            for (uit=units.begin();uit<units.end();++uit)   {   // проверяем, съел ли объект еду
-                if (uit->search_over()) {   // закончил поиск?
+            for (uit=units.begin();uit<units.end();++uit)   {   // ГЇГ°Г®ГўГҐГ°ГїГҐГ¬, Г±ГєГҐГ« Г«ГЁ Г®ГЎГєГҐГЄГІ ГҐГ¤Гі
+                if (uit->search_over()) {   // Г§Г ГЄГ®Г­Г·ГЁГ« ГЇГ®ГЁГ±ГЄ?
                     for (pit=plants.begin();pit<plants.end();++pit)
-                        if (uit->retFoodId()==pit->p_id())  {   // если ID съеденного совпадает с ID в массиве
-                            pit->delete_p();    // убивашки
+                        if (uit->retFoodId()==pit->p_id())  {   // ГҐГ±Г«ГЁ ID Г±ГєГҐГ¤ГҐГ­Г­Г®ГЈГ® Г±Г®ГўГЇГ Г¤Г ГҐГІ Г± ID Гў Г¬Г Г±Г±ГЁГўГҐ
+                            pit->delete_p();    // ГіГЎГЁГўГ ГёГЄГЁ
                             query << "UPDATE P SET tEaten = " << real_time << ", life = 0 WHERE id = " << pit->p_id() << ";";
                             query.execute();
                             //std::cout << "plant's health point = " << pit->retPlantHp() << std::endl;
-                            uit->setUnitHp(pit->retPlantHp());  // добавляем HP еды к HP объекта
-                            uit->set_over();    // сбрасываем флаг окончания поиска
+                            uit->setUnitHp(pit->retPlantHp());  // Г¤Г®ГЎГ ГўГ«ГїГҐГ¬ HP ГҐГ¤Г» ГЄ HP Г®ГЎГєГҐГЄГІГ 
+                            uit->set_over();    // Г±ГЎГ°Г Г±Г»ГўГ ГҐГ¬ ГґГ«Г ГЈ Г®ГЄГ®Г­Г·Г Г­ГЁГї ГЇГ®ГЁГ±ГЄГ 
                         }
                 }
 
             }
-            for (uit=units.begin();uit<units.end();++uit)   {       //  генерация детишек
+            for (uit=units.begin();uit<units.end();++uit)   {       //  ГЈГҐГ­ГҐГ°Г Г¶ГЁГї Г¤ГҐГІГЁГёГҐГЄ
                 if (uit->retMakeChildOver())    {
                     for (ujt=units.begin();ujt<units.end();++ujt)   {
                         if (uit->getPartnerId()==ujt->retUnitId())  {
@@ -287,25 +287,25 @@ int main()
                     }
                 }
             }
-            for (uit=units.begin();uit<units.end();++uit)   {   // сравнение координат блуждающих объектов и стоящих растений
-                if (!uit->search_food() && !uit->search_over() && uit->retUnitHp())    {    // если объект: 1) не идет к еде 2) не ест 3) здоровье не максимальное
-                    bool tar = false;   // флаг присутствия в округе объекта Unit желанного Plant
+            for (uit=units.begin();uit<units.end();++uit)   {   // Г±Г°Г ГўГ­ГҐГ­ГЁГҐ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ ГЎГ«ГіГ¦Г¤Г ГѕГ№ГЁГµ Г®ГЎГєГҐГЄГІГ®Гў ГЁ Г±ГІГ®ГїГ№ГЁГµ Г°Г Г±ГІГҐГ­ГЁГ©
+                if (!uit->search_food() && !uit->search_over() && uit->retUnitHp())    {    // ГҐГ±Г«ГЁ Г®ГЎГєГҐГЄГІ: 1) Г­ГҐ ГЁГ¤ГҐГІ ГЄ ГҐГ¤ГҐ 2) Г­ГҐ ГҐГ±ГІ 3) Г§Г¤Г®Г°Г®ГўГјГҐ Г­ГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГҐ
+                    bool tar = false;   // ГґГ«Г ГЈ ГЇГ°ГЁГ±ГіГІГ±ГІГўГЁГї Гў Г®ГЄГ°ГіГЈГҐ Г®ГЎГєГҐГЄГІГ  Unit Г¦ГҐГ«Г Г­Г­Г®ГЈГ® Plant
                     sf::Vector2f t_pos;
                     float lenght = 100;
                     int t_id = 0;
-                    for (pit=plants.begin();pit<plants.end();++pit) {   // сравниваем каждый объект со всем списком растений
-                        if ((pit->is_alive()) && (f_lenght(pit->pos(), uit->pos()) <= 50) && (f_lenght(pit->pos(), uit->pos()) < lenght))    { //если растение живо
-                            t_pos = pit->pos();                             //и объект находится в 50 пикселях от растения и расстояние до растения
-                            lenght = f_lenght(pit->pos(), uit->pos());      //является самым меньшим из возможных (выбираем самый короткий маршрут)
-                            t_id = pit->p_id();                             // то запоминаем координату, длину и id растения
-                            tar = true;                                     // устанавливаем флаг наличия хотя бы одного объекта в 1
+                    for (pit=plants.begin();pit<plants.end();++pit) {   // Г±Г°Г ГўГ­ГЁГўГ ГҐГ¬ ГЄГ Г¦Г¤Г»Г© Г®ГЎГєГҐГЄГІ Г±Г® ГўГ±ГҐГ¬ Г±ГЇГЁГ±ГЄГ®Г¬ Г°Г Г±ГІГҐГ­ГЁГ©
+                        if ((pit->is_alive()) && (f_lenght(pit->pos(), uit->pos()) <= 50) && (f_lenght(pit->pos(), uit->pos()) < lenght))    { //ГҐГ±Г«ГЁ Г°Г Г±ГІГҐГ­ГЁГҐ Г¦ГЁГўГ®
+                            t_pos = pit->pos();                             //ГЁ Г®ГЎГєГҐГЄГІ Г­Г ГµГ®Г¤ГЁГІГ±Гї Гў 50 ГЇГЁГЄГ±ГҐГ«ГїГµ Г®ГІ Г°Г Г±ГІГҐГ­ГЁГї ГЁ Г°Г Г±Г±ГІГ®ГїГ­ГЁГҐ Г¤Г® Г°Г Г±ГІГҐГ­ГЁГї
+                            lenght = f_lenght(pit->pos(), uit->pos());      //ГїГўГ«ГїГҐГІГ±Гї Г±Г Г¬Г»Г¬ Г¬ГҐГ­ГјГёГЁГ¬ ГЁГ§ ГўГ®Г§Г¬Г®Г¦Г­Г»Гµ (ГўГ»ГЎГЁГ°Г ГҐГ¬ Г±Г Г¬Г»Г© ГЄГ®Г°Г®ГІГЄГЁГ© Г¬Г Г°ГёГ°ГіГІ)
+                            t_id = pit->p_id();                             // ГІГ® Г§Г ГЇГ®Г¬ГЁГ­Г ГҐГ¬ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГі, Г¤Г«ГЁГ­Гі ГЁ id Г°Г Г±ГІГҐГ­ГЁГї
+                            tar = true;                                     // ГіГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГ¬ ГґГ«Г ГЈ Г­Г Г«ГЁГ·ГЁГї ГµГ®ГІГї ГЎГ» Г®Г¤Г­Г®ГЈГ® Г®ГЎГєГҐГЄГІГ  Гў 1
                         }
                     }
-                    if (tar) uit->food(t_id, t_pos);  // если в округе существует растение, то передаем объекту id и координаты лучшего варианта
+                    if (tar) uit->food(t_id, t_pos);  // ГҐГ±Г«ГЁ Гў Г®ГЄГ°ГіГЈГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ Г°Г Г±ГІГҐГ­ГЁГҐ, ГІГ® ГЇГҐГ°ГҐГ¤Г ГҐГ¬ Г®ГЎГєГҐГЄГІГі id ГЁ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» Г«ГіГ·ГёГҐГЈГ® ГўГ Г°ГЁГ Г­ГІГ 
                 }
             }
 
-            for (uit=units.begin();uit<units.end();++uit)   {   // Сравнение объектов между собой: если живы, взрослы, здоровы и не являтся родителем
+            for (uit=units.begin();uit<units.end();++uit)   {   // Г‘Г°Г ГўГ­ГҐГ­ГЁГҐ Г®ГЎГєГҐГЄГІГ®Гў Г¬ГҐГ¦Г¤Гі Г±Г®ГЎГ®Г©: ГҐГ±Г«ГЁ Г¦ГЁГўГ», ГўГ§Г°Г®Г±Г«Г», Г§Г¤Г®Г°Г®ГўГ» ГЁ Г­ГҐ ГїГўГ«ГїГІГ±Гї Г°Г®Г¤ГЁГІГҐГ«ГҐГ¬
                 if (uit->isUnitOld() && (!uit->retMakeChild()) && (uit->is_alive()) && (!uit->retUnitHp()) && (!uit->retUnitParent())) {
                     bool tar = false;
                     sf::Vector2f t_pos;
@@ -333,11 +333,11 @@ int main()
             }
 
             time2 = Clock2.getElapsedTime().asSeconds();
-            for (pit=plants.begin();pit<plants.end();++pit)    {    // выбираем элемент массива растений
-                pit->draw(window);                          // отрисовываем
+            for (pit=plants.begin();pit<plants.end();++pit)    {    // ГўГ»ГЎГЁГ°Г ГҐГ¬ ГЅГ«ГҐГ¬ГҐГ­ГІ Г¬Г Г±Г±ГЁГўГ  Г°Г Г±ГІГҐГ­ГЁГ©
+                pit->draw(window);                          // Г®ГІГ°ГЁГ±Г®ГўГ»ГўГ ГҐГ¬
             }
-            for (uit=units.begin();uit<units.end();++uit)  {   // выбираем элемент массива особей (объектов)
-                uit->draw(window);       // отрисовываем его
+            for (uit=units.begin();uit<units.end();++uit)  {   // ГўГ»ГЎГЁГ°Г ГҐГ¬ ГЅГ«ГҐГ¬ГҐГ­ГІ Г¬Г Г±Г±ГЁГўГ  Г®Г±Г®ГЎГҐГ© (Г®ГЎГєГҐГЄГІГ®Гў)
+                uit->draw(window);       // Г®ГІГ°ГЁГ±Г®ГўГ»ГўГ ГҐГ¬ ГҐГЈГ®
                 if (time2>=1)   {
                     //query << "CREATE TABLE IF NOT EXISTS U" << uit->retUnitId() << "(x float, y float, t int, life bool) ENGINE=MEMORY; ";
                     //query.exec();
@@ -357,7 +357,7 @@ int main()
             CurrentTime.setString(ShowCurrentTime);
             window.draw(CurrentTime);
             window.display();
-        }   // глобальная отрисовка всех элементов
+        }   // ГЈГ«Г®ГЎГ Г«ГјГ­Г Гї Г®ГІГ°ГЁГ±Г®ГўГЄГ  ГўГ±ГҐГµ ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў
     }
     return EXIT_SUCCESS;
 }
