@@ -1,5 +1,4 @@
 
-j
 #include <math.h>
 #include <mysql++.h>
 #include <ssqls.h>
